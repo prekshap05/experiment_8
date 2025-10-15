@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Replace the repo URL below with your actual GitHub repository
-                git 'https://github.com/prekshap05/repo.git'
+                git 'https://github.com/prekshap05/experiment_8.git'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-cred',
-                    usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    usernameVariable: 'prekshapatil', passwordVariable: 'Preksha@1528')]) {
                     sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
                     sh "docker push $DOCKER_IMAGE"
                 }
